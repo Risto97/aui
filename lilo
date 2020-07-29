@@ -1517,6 +1517,7 @@ install_desktop_environment(){
       package_install "i3-wm"
       package_install "i3blocks"
       package_install "i3status"
+      package_install "xfce4-terminal"
       package_install "rofi"
       package_install "dunst"
       package_install "libnotify"
