@@ -1199,6 +1199,8 @@ install_desktop_environment(){
       echo "11) $(menu_item "xcompmgr")"
       echo "12) $(menu_item "zathura")"
       echo "13) $(menu_item "speedtest-cli")"
+      echo "14) $(menu_item "feh")"
+      echo "15) $(menu_item "rsync")"
       echo ""
       echo " d) DONE"
       echo ""
@@ -1226,7 +1228,7 @@ install_desktop_environment(){
             aur_package_install "squeeze-git"
             ;;
           7)
-            package_install "thunar tumbler"
+            package_install "thunar tumbler gvfs thunar-volman engrampa unrar file-roller thunar-archive-plugin"
             ;;
           8)
             package_install "tint2"
@@ -1241,10 +1243,16 @@ install_desktop_environment(){
             package_install "xcompmgr transset-df"
             ;;
           12)
-            package_install "zathura"
+            package_install "zathura zathura-pdf-mupdf zathura-djvu"
             ;;
           13)
             package_install "speedtest-cli"
+            ;;
+          14)
+            package_install "feh"
+            ;;
+          15)
+            package_install "rsync"
             ;;
           "d")
             break
@@ -1265,7 +1273,7 @@ install_desktop_environment(){
   echo " --- DE ---         --- WM ---"
   echo " 1) Cinnamon        10) Awesome"
   echo " 2) Deepin          11) Fluxbox"
-  echo " 3) Enlightenment   12) i3"
+  echo " 3) Enlightenment   12) i3 i3blocks i3status"
   echo " 4) GNOME           13) i3-Gaps"
   echo " 5) KDE             14) OpenBox"
   echo " 6) LXQT            15) Xmonad"
@@ -1507,7 +1515,12 @@ install_desktop_environment(){
       print_title "i3 - https://wiki.archlinux.org/index.php/I3"
       print_info "i3 is a dynamic tiling window manager inspired by wmii that is primarily targeted at developers and advanced users. The stated goals for i3 include clear documentation, proper multi-monitor support, a tree structure for windows, and different modes like in vim."
       package_install "i3-wm"
-      package_install "dmenu"
+      package_install "i3blocks"
+      package_install "i3status"
+      package_install "rofi"
+      package_install "dunst"
+      package_install "libnotify"
+      aur_package_install "yad-gtk2"
       # config xinitrc
       config_xinitrc "i3"
       pause_function
@@ -1851,6 +1864,9 @@ install_development_apps(){
     echo "25) $(menu_item "postman-bin" "Postman") $AUR"
     echo "26) $(menu_item "gitkraken" "Gitkraken") $AUR"
     echo "27) $(menu_item "freecad" "FreeCad") $AUR"
+    echo "28) $(menu_item "clang")"
+    echo "29) $(menu_item "base-devel")"
+    echo "30) $(menu_item "cmake")"
     echo ""
     echo " b) BACK"
     echo ""
@@ -1950,6 +1966,15 @@ install_development_apps(){
           ;;
         27)
           aur_package_install "freecad"
+          ;;
+        28)
+          package_install "clang"
+          ;;
+        29)
+          package_install "autoconf automake binutils bison fakeroot file findutils flex gawk gcc gettext grep groff gzip libtool m4 make pacman patch pkgconf sed sudo texinfo which"
+          ;;
+        30)
+          package_install "cmake"
           ;;
         "b")
           break
@@ -2068,6 +2093,15 @@ install_system_apps(){
     echo "16) $(menu_item "netdata")"
     echo "17) $(menu_item "nload")"
     echo "18) $(menu_item "vmware-workstation12" "VMware Workstation 12") $AUR"
+    echo "19) $(menu_item "wget")"
+    echo "20) $(menu_item "python-pip")"
+    echo "21) $(menu_item "xdotool xorg-xev xorg-xprop")"
+    echo "22) $(menu_item "bash-completion")"
+    echo "23) $(menu_item "qalculate-gtk")"
+    echo "24) $(menu_item "xfce4-screenshooter")"
+    echo "25) $(menu_item "arandr")"
+    echo "26) $(menu_item "gnome-disk-utility")"
+    
     echo ""
     echo " b) BACK"
     echo ""
@@ -2154,6 +2188,32 @@ install_system_apps(){
           ;;
         18)
           aur_package_install "vmware-workstation12"
+          ;;
+        19)
+          package_install "wget"
+          ;;
+        20)
+          package_install "python-pip"
+          ;;
+        21)
+          package_install "xdotool"
+	  package_install "xorg-xev"
+	  package_install "xorg-xprop"
+          ;;
+        22)
+          package_install "bash-completion"
+          ;;
+        23)
+          package_install "qalculate-gtk"
+          ;;
+        24)
+          package_install "xfce4-screenshooter"
+          ;;
+        25)
+          package_install "arandr"
+          ;;
+        26)
+          package_install "gnome-disk-utility"
           ;;
         "b")
           break
